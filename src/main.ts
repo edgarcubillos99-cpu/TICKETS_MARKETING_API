@@ -19,9 +19,9 @@ async function bootstrap() {
   );
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Tickets API')
+    .setTitle('Tickets & Marketing API')
     .setDescription(
-      'API de consulta de tickets_osnet para dashboard. Login + MFA por email y JWT.',
+      'API de consulta de tickets y métricas de marketing para dashboard. Login + MFA por email y JWT.',
     )
     .setVersion('1.0')
     .addBearerAuth()

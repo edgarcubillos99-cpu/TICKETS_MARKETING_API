@@ -8,6 +8,9 @@ import { validateEnv } from './config/env.validation';
 import { TicketsModule } from './tickets/tickets.module';
 import { Ticket } from './tickets/entities/ticket.entity';
 import { AppController } from './app.controller';
+import { MarketingModule } from './marketing/marketing.module';
+import { RedSocialMetrica } from './marketing/entities/red-social-metrica.entity';
+import { AnuncioMetrica } from './marketing/entities/anuncio-metrica.entity';
 
 @Module({
   imports: [
@@ -25,7 +28,7 @@ import { AppController } from './app.controller';
         username: configService.getOrThrow<string>('DB_USERNAME'),
         password: configService.getOrThrow<string>('DB_PASSWORD'),
         database: configService.getOrThrow<string>('DB_DATABASE'),
-        entities: [Ticket],
+        entities: [Ticket, RedSocialMetrica, AnuncioMetrica],
         synchronize: false,
         ssl:
           configService.get('DB_SSL') === 'true'
@@ -39,6 +42,7 @@ import { AppController } from './app.controller';
     }),
     AuthModule,
     TicketsModule,
+    MarketingModule,
   ],
   controllers: [AppController],
   providers: [
